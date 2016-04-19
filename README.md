@@ -1,3 +1,3 @@
 # TabComponent
 
-![](https://github.com/ngstyle/react-native-tabBar/master/screenshot/screenshot.png)
+![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot.png)
