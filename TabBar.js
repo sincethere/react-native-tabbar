@@ -138,13 +138,12 @@ const styles = StyleSheet.create({
     nav: {
         flexDirection: 'row',
         width: Dimensions.get('window').width,
-        height: 56,
         backgroundColor: '#f3f3f3',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     navItem: {
         flex: 1,
+        paddingTop: 10,
+        paddingBottom: 10,
         alignItems: 'center',
     },
     center: {
@@ -155,9 +154,9 @@ const styles = StyleSheet.create({
     navImage: {
         width: 24,
         height: 24,
-        marginBottom: 2,
+        marginBottom: 3,
     },
     navText: {
-        marginTop: 2,
+        marginTop: 3,
     },
 });
