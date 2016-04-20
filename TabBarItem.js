@@ -19,7 +19,7 @@ export default class TabBarItem extends Component {
             contentVisible: false,
         };
 
-        EventEmitter.addListener("tabBarWillChangeSelected",(cProps) => {
+        this.listener = EventEmitter.addListener("tabBarWillChangeSelected",(cProps) => {
             if (!this.state.contentVisible && cProps == props) {
                 this.setState({
                     contentVisible: true,
@@ -44,6 +44,10 @@ export default class TabBarItem extends Component {
         } else {
             return <View />
         }
+    }
+
+    componentWillUnmount() {
+        this.listener.remove();
     }
 }
 
