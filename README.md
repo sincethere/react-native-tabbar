@@ -1,5 +1,5 @@
 # TabBar
-mobile bottom tabbar using react-native
+Mobile bottom tabbar using react-native
 
 ## Installation
 
@@ -56,4 +56,6 @@ import TabBar from 'react-native-xtabbar';
 </TabBar>
 
 ```
-![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot.png)
+## Screenshot
+![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_ios.png)
+![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_android.png)

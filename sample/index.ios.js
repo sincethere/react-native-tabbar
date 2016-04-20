@@ -11,7 +11,6 @@ import React, {
   View,
 } from 'react-native';
 
-// import TabBar from './component/TabBar';
 import TabBar from 'react-native-xtabbar';
 
 export class TabComponentDemo extends Component {
