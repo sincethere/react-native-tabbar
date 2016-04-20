@@ -57,5 +57,5 @@ import TabBar from 'react-native-xtabbar';
 
 ```
 ## Screenshot
-![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_ios.png)
-![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_android.png)
+![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_ios.jpg)
+![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_android.jpg)
