@@ -1,5 +1,6 @@
-# TabBar
-Mobile bottom tabbar using react-native
+
+Mobile bottom tab bar using react-native,support android and ios.
+Pages won't be rendered when you switch to other tabs,also save the status of invisible pages.
 
 ## Installation
 
