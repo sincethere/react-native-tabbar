@@ -66,10 +66,7 @@ export default class TabBar extends Component {
                                 child.props.onPress();
                             }
 
-                            this.visibles[i] = true;
-                            this.setState({
-                                selectedIndex: i,
-                            })
+                            this.update(i);
                         }}>
                         <View style={styles.center}>
                             <Image style={styles.navImage} resizeMode='cover' source={imgSrc}/>
@@ -114,16 +111,17 @@ export default class TabBar extends Component {
             page = 0;
         }
 
-        this.visibles[page] = true;
-        this.setState({
-            selectedIndex: page,
-        });
+        this.update(page);
     }
 
-    componentDidUpdate() {
+    update(index) {
+        this.visibles[index] = true;
+        this.setState({
+            selectedIndex: index,
+        });
+
         if (this.props.onItemSelected) {
-            console.log(this.props);
-            this.props.onItemSelected(this.state.selectedIndex);
+            this.props.onItemSelected(index);
         }
     }
 }
