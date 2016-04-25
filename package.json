@@ -1,6 +1,6 @@
 {
   "name": "react-native-xtabbar",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "mobile bottom tabbar using react-native",
   "private": false,
   "main": "TabBar.js",
@@ -17,8 +17,5 @@
     "android",
     "tabbar",
     "nav"
-  ],
-  "dependencies": {
-    "events": "^1.1.0"
-  }
+  ]
 }

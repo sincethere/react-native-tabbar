@@ -12,6 +12,7 @@ import React, {
 } from 'react-native';
 
 import TabBar from 'react-native-xtabbar';
+import List from './List.js';
 
 export class TabComponentDemo extends Component {
     render() {
@@ -36,9 +37,7 @@ export class TabComponentDemo extends Component {
                         icon={require('./image/start_normal.png')}
                         selectedIcon={require('./image/start_hightlight.png')}
                         title='定位'>
-                        <View style={styles.text}>
-                            <Text style={{fontSize: 18}}>Location</Text>
-                        </View>
+                        <List />
                     </TabBar.Item>
 
                     <TabBar.Item

@@ -13,7 +13,6 @@ import React, {
     Dimensions,
 } from 'react-native';
 
-import EventEmitter from './TabEventEmitter';
 import TabBarItem from './TabBarItem';
 
 export default class TabBar extends Component {
@@ -36,6 +35,7 @@ export default class TabBar extends Component {
     constructor(props) {
         super(props);
 
+        this.visibles = [];
         this.state = {
             selectedIndex: 0,
         }
@@ -44,13 +44,13 @@ export default class TabBar extends Component {
     render() {
         let children = this.props.children;
         if (!children.length) {
-            throw new Error("at least two child component.");
+            throw new Error("at least two child component are needed.");
         }
 
         // 底部tab按钮组
         let navs = [];
 
-        this.views = children.map(
+        const contentViews = children.map(
             (child,i) => {
                 const imgSrc = this.state.selectedIndex == i ? child.props.selectedIcon : child.props.icon;
                 const color = this.state.selectedIndex == i ? this.props.navTextColorSelected : this.props.navTextColor;
@@ -65,8 +65,10 @@ export default class TabBar extends Component {
                                 child.props.onPress();
                             }
 
-                            this.setState({selectedIndex: i,})
-                            EventEmitter.emit("tabBarWillChangeSelected",child.props);
+                            this.visibles[i] = true;
+                            this.setState({
+                                selectedIndex: i,
+                            })
                         }}>
                         <View style={styles.center}>
                             <Image style={styles.navImage} resizeMode='cover' source={imgSrc}/>
@@ -77,23 +79,25 @@ export default class TabBar extends Component {
                     </TouchableHighlight>
                 );
 
-
-                let style = this.state.selectedIndex === i ? styles.base : [styles.base,styles.gone];
-
-                return (
-                    <View
-                        key={'view_' + i}
-                        style={style}>
-                        {child}
-                    </View>
-                );
+                if (!this.visibles[i]) {
+                    return null;
+                } else {
+                    const style = this.state.selectedIndex === i ? styles.base : [styles.base,styles.gone];
+                    return (
+                        <View
+                            key={'view_' + i}
+                            style={style}>
+                            {child}
+                        </View>
+                    );
+                }
             }
         );
 
         return (
             <View style={[styles.container,this.props.style]}>
                 <View style={styles.content}>
-                    {this.views}
+                    {contentViews}
                 </View>
                 <View style={styles.nav}>
                     {navs}
@@ -103,14 +107,16 @@ export default class TabBar extends Component {
     }
 
     componentDidMount() {
-        // 默认选中第一个，且显示
         let page = this.props.defaultPage;
 
         if (page >= this.props.children.length || page < 0){
             page = 0;
         }
-        this.setState({selectedIndex: page,});
-        EventEmitter.emit("tabBarWillChangeSelected",this.props.children[page].props);
+
+        this.visibles[page] = true;
+        this.setState({
+            selectedIndex: page,
+        });
     }
 }
 
