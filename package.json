@@ -1,12 +1,21 @@
 {
-  "name": "TabComponentDemo",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+  "name": "react-native-xtabbar",
+  "version": "0.1.5",
+  "description": "mobile bottom tabbar using react-native",
+  "private": false,
+  "main": "TabBar.js",
+  "author": "chon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngstyle/react-native-tabBar.git"
   },
-  "dependencies": {
-    "react-native": "^0.24.0",
-    "react": "^0.14.8"
-  }
+  "license": "MIT",
+  "keywords": [
+    "react-component",
+    "react-native",
+    "ios",
+    "android",
+    "tabbar",
+    "nav"
+  ]
 }
