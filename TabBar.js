@@ -30,6 +30,7 @@ export default class TabBar extends Component {
         navFontSize: React.PropTypes.number,
         navTextColor: React.PropTypes.string,
         navTextColorSelected: React.PropTypes.string,
+        onItemSelected: React.PropTypes.func,
     };
 
     constructor(props) {
@@ -117,6 +118,13 @@ export default class TabBar extends Component {
         this.setState({
             selectedIndex: page,
         });
+    }
+
+    componentDidUpdate() {
+        if (this.props.onItemSelected) {
+            console.log(this.props);
+            this.props.onItemSelected(this.state.selectedIndex);
+        }
     }
 }
 
