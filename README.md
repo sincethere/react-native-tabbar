@@ -17,6 +17,8 @@ npm install react-native-xtabbar --save
 | option | value | required/optional | comment |
 | --- | --- | --- | --- |
 | onItemSelected | function | optional | this function will be called when the focus item changing |
+| navTextColor | color | optional | nav text normal color |
+| navTextColorSelected | color | optional | nav text selected color |
 
 ### Tabbar.Item
 
@@ -40,7 +42,7 @@ import TabBar from 'react-native-xtabbar';
         icon={require('./image/start_normal.png')}
         selectedIcon={require('./image/start_hightlight.png')}
         onPress={() => {
-            console.log("first onPress");
+            // do sth
         }}
         title='首页'>
         <View style={styles.text}>
@@ -77,6 +79,9 @@ import TabBar from 'react-native-xtabbar';
 </TabBar>
 
 ```
+## TODO
+TabBar.Item badge
+
 ## Screenshot
 ![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_ios.jpg)
 ![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_android.jpg)
