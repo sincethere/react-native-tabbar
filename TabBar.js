@@ -26,6 +26,8 @@ export default class TabBar extends Component {
     };
 
     static propTypes = {
+        ...View.propTypes,
+        style: View.propTypes.style,
         defaultPage: React.PropTypes.number,
         navFontSize: React.PropTypes.number,
         navTextColor: React.PropTypes.string,
@@ -97,6 +99,9 @@ export default class TabBar extends Component {
                 <View style={styles.content}>
                     {contentViews}
                 </View>
+
+                <View style={styles.horizonLine}/>
+
                 <View style={styles.nav}>
                     {navs}
                 </View>
@@ -154,8 +159,8 @@ const styles = StyleSheet.create({
     },
     navItem: {
         flex: 1,
-        paddingTop: 10,
-        paddingBottom: 10,
+        paddingTop: 6,
+        paddingBottom: 6,
         alignItems: 'center',
     },
     center: {
@@ -166,9 +171,14 @@ const styles = StyleSheet.create({
     navImage: {
         width: 24,
         height: 24,
-        marginBottom: 3,
+        marginBottom: 2,
     },
     navText: {
-        marginTop: 3,
+        marginTop: 2,
+    },
+    horizonLine: {
+        backgroundColor: '#adadad',
+        height: 1,
+        width: Dimensions.get('window').width,
     },
 });
