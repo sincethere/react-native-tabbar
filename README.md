@@ -10,12 +10,32 @@ First you need to install react-native-xtabbar:
 npm install react-native-xtabbar --save
 ```
 
+## Options
+
+### Tabbar
+
+| option | value | required/optional | comment |
+| --- | --- | --- | --- |
+| onItemSelected | function | optional | this function will be called when the focus item changing |
+
+### Tabbar.Item
+
+| option | value | required/optional | comment |
+| --- | --- | --- | --- |
+| icon | image source | required | the icon when item is not focus |
+| selectedIcon | image source | required | the icon when item is focus |
+| title | string | required | title of item |
+| onPress | function | optional | the function will be called when item is selected. you can also use Tabbar's onItemSelected function if you want to control press callback in one place. |
+
 ## Usage
 
 ```javascript
 import TabBar from 'react-native-xtabbar';
 
-<TabBar style={styles.content}>
+<TabBar
+    style={styles.content}
+    onItemSelected={(index) => {console.log(`current item's index is ${index}`);}}
+>
     <TabBar.Item
         icon={require('./image/start_normal.png')}
         selectedIcon={require('./image/start_hightlight.png')}
