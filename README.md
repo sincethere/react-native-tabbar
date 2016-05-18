@@ -45,6 +45,7 @@ import TabBar from 'react-native-xtabbar';
         onPress={() => {
             // do sth
         }}
+        badge={7}
         title='首页'>
         <View style={styles.text}>
             <Text style={{fontSize: 18}}>Home</Text>
@@ -81,7 +82,7 @@ import TabBar from 'react-native-xtabbar';
 
 ```
 ## TODO
-TabBar.Item badge
+~~TabBar.Item badge~~
 
 ## Screenshot
 ![](https://github.com/ngstyle/react-native-tabBar/raw/master/screenshot/screenshot_ios.jpg)
