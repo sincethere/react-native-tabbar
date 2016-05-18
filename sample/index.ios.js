@@ -15,6 +15,13 @@ import TabBar from 'react-native-xtabbar';
 import List from './List.js';
 
 export class TabComponentDemo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            badge: 7,
+        }
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -27,6 +34,7 @@ export class TabComponentDemo extends Component {
                         onPress={() => {
                             console.log("first onPress");
                         }}
+                        badge={this.state.badge}
                         title='首页'>
                         <View style={styles.text}>
                             <Text style={{fontSize: 18}}>Home</Text>
@@ -36,6 +44,7 @@ export class TabComponentDemo extends Component {
                     <TabBar.Item
                         icon={require('./image/start_normal.png')}
                         selectedIcon={require('./image/start_hightlight.png')}
+                        badge={7}
                         title='定位'>
                         <List />
                     </TabBar.Item>
@@ -43,6 +52,7 @@ export class TabComponentDemo extends Component {
                     <TabBar.Item
                         icon={require('./image/start_normal.png')}
                         selectedIcon={require('./image/start_hightlight.png')}
+                        badge=' '
                         title='发现'>
                         <View style={styles.text}>
                             <Text style={{fontSize: 18}}>Find</Text>

@@ -44,6 +44,30 @@ export default class TabBar extends Component {
         }
     }
 
+    getBadge(child) {
+        let value = 0;
+        if (typeof child.props.badge == 'number') {
+            value = child.props.badge;
+        }
+
+        if (child.props.badge || value != 0) {
+          const _badgeStyle = (typeof child.props.badge == 'number') ? styles.badgeWithNumber : styles.badgeNoNumber;
+
+          let valueStr = '';
+          if (value > 99) {
+              valueStr = 99;
+          } else {
+              valueStr = child.props.badge;
+          }
+
+          return (
+              <View style={[_badgeStyle, this.props.badgeStyle]}>
+                  <Text style={styles.badgeText}>{valueStr}</Text>
+              </View>
+          );
+        }
+    }
+
     render() {
         let children = this.props.children;
         if (!children.length) {
@@ -75,6 +99,7 @@ export default class TabBar extends Component {
                             <Text style={[styles.navText,{color: color,fontSize: this.props.navFontSize}]}>
                                 {child.props.title}
                             </Text>
+                            {this.getBadge(child)}
                         </View>
                     </TouchableHighlight>
                 );
@@ -180,5 +205,38 @@ const styles = StyleSheet.create({
         backgroundColor: '#adadad',
         height: 1,
         width: Dimensions.get('window').width,
+    },
+    badgeNoNumber: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        top: -4,
+        left: 24,
+        position: 'absolute',
+        width: 10,
+        height: 10,
+        borderRadius: 10,
+        borderWidth: 1,
+        alignItems: 'center',
+        borderColor: '#ffffff',
+        backgroundColor: '#ff0000',
+    },
+    badgeWithNumber: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        top: -4,
+        left: 24,
+        position: 'absolute',
+        width: 20,
+        height: 20,
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#ffffff',
+        backgroundColor: '#ff0000',
+    },
+    badgeText: {
+        alignSelf: 'center',
+        fontSize: 11,
+        color: '#ffffff',
+        backgroundColor: 'transparent',
     },
 });

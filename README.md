@@ -10,11 +10,11 @@ First you need to install react-native-xtabbar:
 npm install react-native-xtabbar --save
 ```
 
-## Options
+## Props
 
 ### Tabbar
 
-| option | value | required/optional | comment |
+| prop | value | required/optional | comment |
 | --- | --- | --- | --- |
 | onItemSelected | function | optional | this function will be called when the focus item changing |
 | navTextColor | color | optional | nav text normal color |
@@ -22,12 +22,13 @@ npm install react-native-xtabbar --save
 
 ### Tabbar.Item
 
-| option | value | required/optional | comment |
+| prop | value | required/optional | comment |
 | --- | --- | --- | --- |
 | icon | image source | required | the icon when item is not focus |
 | selectedIcon | image source | required | the icon when item is focus |
 | title | string | required | title of item |
 | onPress | function | optional | the function will be called when item is selected. you can also use Tabbar's onItemSelected function if you want to control press callback in one place. |
+| badge | number/string | optional | badge |
 
 ## Usage
 
