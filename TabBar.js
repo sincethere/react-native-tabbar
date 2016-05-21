@@ -3,15 +3,15 @@
  */
 'use strict'
 
-import React, {
+import {
     StyleSheet,
-    Component,
     View,
     Image,
     Text,
     TouchableHighlight,
     Dimensions,
 } from 'react-native';
+import React, {Component} from 'react'
 
 import TabBarItem from './TabBarItem';
 
