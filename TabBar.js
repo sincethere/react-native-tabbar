@@ -67,6 +67,10 @@ export default class TabBar extends Component {
           );
         }
     }
+	//放大按钮
+	_stressPoint (child){
+		return child.props.point ? true: false
+	}
 
     render() {
         let children = this.props.children;
@@ -95,8 +99,8 @@ export default class TabBar extends Component {
                             this.update(i);
                         }}>
                         <View style={styles.center}>
-                            <Image style={styles.navImage} resizeMode='cover' source={imgSrc}/>
-                            <Text style={[styles.navText,{color: color,fontSize: this.props.navFontSize}]}>
+                            <Image style={[styles.navImage, this._stressPoint(child)? styles.navImageChange: '']} resizeMode='cover' source={imgSrc}/>
+                            <Text style={[styles.navText,{color: color,fontSize: this.props.navFontSize}, this._stressPoint(child)? styles.navTextChange: '']}>
                                 {child.props.title}
                             </Text>
                             {this.getBadge(child)}
@@ -198,9 +202,26 @@ const styles = StyleSheet.create({
         height: 24,
         marginBottom: 2,
     },
-    navText: {
-        marginTop: 2,
+	navImageChange: {
+		top: -28,
+		left: -6,
+		width: 56,
+		height: 56,
+		marginBottom: 2,
+		position: 'absolute',
+		borderRadius: 28,
+		borderWidth: 3,
+		borderColor: '#fff',
+		alignSelf: 'center'
+	},
+    navTextChange: {
+        marginTop: 30,
+	    fontSize: 11,
+	    alignSelf: 'center'
     },
+	navText: {
+		marginTop: 2,
+	},
     horizonLine: {
         backgroundColor: '#adadad',
         height: 1,
