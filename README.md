@@ -29,7 +29,7 @@ npm install react-native-xtabbar --save
 | title | string | required | title of item |
 | onPress | function | optional | the function will be called when item is selected. you can also use Tabbar's onItemSelected function if you want to control press callback in one place. |
 | badge | number/string | optional | badge |
-| point (Thanks @WittBulter) | bool | optional | clipChildren performance |
+| point (Thanks [@WittBulter](https://github.com/WittBulter)) | bool | optional | clipChildren performance |
 
 ## Usage
 
