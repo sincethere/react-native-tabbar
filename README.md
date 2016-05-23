@@ -1,4 +1,4 @@
-
+## Overview
 Mobile bottom tab bar using react-native,support android and ios.
 Pages won't be rendered when you switch to other tabs,also save the status of invisible pages.
 
@@ -29,6 +29,7 @@ npm install react-native-xtabbar --save
 | title | string | required | title of item |
 | onPress | function | optional | the function will be called when item is selected. you can also use Tabbar's onItemSelected function if you want to control press callback in one place. |
 | badge | number/string | optional | badge |
+| point (Thanks @WittBulter) | bool | optional | clipChildren performance |
 
 ## Usage
 
