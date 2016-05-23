@@ -3,12 +3,12 @@
  */
 'use strict'
 
-import React, {
+import {
     StyleSheet,
-    Component,
     View,
     Text,
 } from 'react-native';
+import React, {Component} from 'react'
 
 export default class TabBarItem extends Component {
 
