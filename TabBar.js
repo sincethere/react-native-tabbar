@@ -69,7 +69,7 @@ export default class TabBar extends Component {
     }
 	//放大按钮
 	_stressPoint (child){
-		return child.props.point ? true: false
+		return child.props.point;
 	}
 
     render() {
@@ -99,7 +99,7 @@ export default class TabBar extends Component {
                             this.update(i);
                         }}>
                         <View style={styles.center}>
-                            <Image style={[styles.navImage, this._stressPoint(child)? styles.navImageChange: '']} resizeMode='cover' source={imgSrc}/>
+                            <Image style={[styles.navImage, this._stressPoint(child) ? styles.navImageChange : undefined]} resizeMode='cover' source={imgSrc}/>
                             <Text style={[styles.navText,{color: color,fontSize: this.props.navFontSize}, this._stressPoint(child)? styles.navTextChange: '']}>
                                 {child.props.title}
                             </Text>
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     center: {
-        flex: 1,
+        width: 56,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -204,7 +204,6 @@ const styles = StyleSheet.create({
     },
 	navImageChange: {
 		top: -28,
-		left: -6,
 		width: 56,
 		height: 56,
 		marginBottom: 2,
@@ -221,6 +220,7 @@ const styles = StyleSheet.create({
     },
 	navText: {
 		marginTop: 2,
+        alignSelf: 'center',
 	},
     horizonLine: {
         backgroundColor: '#adadad',
@@ -230,8 +230,8 @@ const styles = StyleSheet.create({
     badgeNoNumber: {
         flexDirection: 'row',
         justifyContent: 'center',
-        top: -4,
-        left: 24,
+        top: -2,
+        left: 36,
         position: 'absolute',
         width: 10,
         height: 10,
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         top: -4,
-        left: 24,
+        left: 36,
         position: 'absolute',
         width: 20,
         height: 20,

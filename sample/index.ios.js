@@ -35,7 +35,7 @@ export class TabComponentDemo extends Component {
                             console.log("first onPress");
                         }}
                         badge={this.state.badge}
-                        title='首页'>
+                        title='Home'>
                         <View style={styles.text}>
                             <Text style={{fontSize: 18}}>Home</Text>
                         </View>
@@ -45,15 +45,15 @@ export class TabComponentDemo extends Component {
                         icon={require('./image/start_normal.png')}
                         selectedIcon={require('./image/start_hightlight.png')}
                         badge={7}
-                        title='定位'>
+                        title='Location'>
                         <List />
                     </TabBar.Item>
 
                     <TabBar.Item
                         icon={require('./image/start_normal.png')}
                         selectedIcon={require('./image/start_hightlight.png')}
-                        badge=' '
-                        title='发现'>
+                        point={true}
+                        title='Scale'>
                         <View style={styles.text}>
                             <Text style={{fontSize: 18}}>Find</Text>
                         </View>
@@ -62,7 +62,17 @@ export class TabComponentDemo extends Component {
                     <TabBar.Item
                         icon={require('./image/start_normal.png')}
                         selectedIcon={require('./image/start_hightlight.png')}
-                        title='我'>
+                        badge=' '
+                        title='Find'>
+                        <View style={styles.text}>
+                            <Text style={{fontSize: 18}}>Find</Text>
+                        </View>
+                    </TabBar.Item>
+
+                    <TabBar.Item
+                        icon={require('./image/start_normal.png')}
+                        selectedIcon={require('./image/start_hightlight.png')}
+                        title='Me'>
                         <View style={styles.text}>
                             <Text style={{fontSize: 18}}>Me</Text>
                         </View>
