@@ -4,12 +4,13 @@
 'use strict'
 
 import {
-    StyleSheet,
-    View,
-    Image,
-    Text,
-    TouchableHighlight,
-    Dimensions,
+	StyleSheet,
+	View,
+	Image,
+	Text,
+	TouchableHighlight,
+	Dimensions,
+	Animated
 } from 'react-native';
 import React, {Component} from 'react'
 
@@ -38,11 +39,12 @@ export default class TabBar extends Component {
     constructor(props) {
         super(props);
 
-        this.visibles = [];
-        this.state = {
-            selectedIndex: 0,
-        }
-    }
+		this.visibles = [];
+		this.state = {
+			selectedIndex: 0,
+			toggleBarValue: new Animated.Value(0)
+		}
+	}
 
     getBadge(child) {
         let value = 0;
@@ -72,11 +74,26 @@ export default class TabBar extends Component {
 		return child.props.point;
 	}
 
-    render() {
-        let children = this.props.children;
-        if (!children.length) {
-            throw new Error("at least two child component are needed.");
-        }
+	//隐藏底部bar
+	_toggleBar (t, def){
+		if (def){
+			return this.setState({
+				toggleBarValue: new Animated.Value(-85)
+			})
+		}
+		Animated.timing(
+			this.state.toggleBarValue,{
+				toValue: t? -85: 0,
+				duration: 350,
+			}
+		).start()
+	}
+
+	render() {
+		let children = this.props.children;
+		if (!children.length) {
+			throw new Error("at least two child component are needed.");
+		}
 
         // 底部tab按钮组
         let navs = [];
@@ -131,12 +148,12 @@ export default class TabBar extends Component {
 
                 <View style={styles.horizonLine}/>
 
-                <View style={styles.nav}>
-                    {navs}
-                </View>
-            </View>
-        );
-    }
+				<Animated.View style={[styles.nav, {marginBottom: this.state.toggleBarValue}]}>
+					{navs}
+				</Animated.View>
+			</View>
+		);
+	}
 
     componentDidMount() {
         let page = this.props.defaultPage;
@@ -145,8 +162,15 @@ export default class TabBar extends Component {
             page = 0;
         }
 
-        this.update(page);
-    }
+		this.update(page);
+		// 默认隐藏底部bar
+		if (this.props.toggle) this._toggleBar(true, 'default')
+	}
+
+	componentWillReceiveProps(nextProps) {
+		// 隐藏底部bar
+		this._toggleBar(nextProps.toggle)
+	}
 
     update(index) {
         this.visibles[index] = true;
