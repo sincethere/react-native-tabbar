@@ -23,6 +23,7 @@ export default class TabBar extends Component {
         defaultPage: 0,
         navFontSize: 14,
         navTextColor: 'black',
+        underlayColor:'#DDD',
         navTextColorSelected: '#FF9100',
     };
 
@@ -32,6 +33,7 @@ export default class TabBar extends Component {
         defaultPage: React.PropTypes.number,
         navFontSize: React.PropTypes.number,
         navTextColor: React.PropTypes.string,
+        underlayColor:React.PropTypes.string,
         navTextColorSelected: React.PropTypes.string,
         onItemSelected: React.PropTypes.func,
     };
@@ -106,14 +108,14 @@ export default class TabBar extends Component {
                 navs[i] = (
                     <TouchableHighlight
                         key={i}
-                        underlayColor={'transparent'}
+                        underlayColor={this.props.underlayColor}
                         style={styles.navItem}
                         onPress={() => {
                             if (child.props.onPress) {
                                 child.props.onPress();
                             }
 
-                            this.update(i);
+                            requestAnimationFrame(()=>{this.update(i);});
                         }}>
                         <View style={styles.center}>
                             <Image style={[styles.navImage, this._stressPoint(child) ? styles.navImageChange : undefined]} resizeMode='cover' source={imgSrc}/>
