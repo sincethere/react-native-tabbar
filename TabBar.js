@@ -13,7 +13,7 @@ import {
 	Animated
 } from 'react-native';
 import React, {Component} from 'react'
-
+import PropTypes from 'prop-types'
 import TabBarItem from './TabBarItem';
 
 export default class TabBar extends Component {
@@ -27,13 +27,13 @@ export default class TabBar extends Component {
     };
 
     static propTypes = {
-        ...View.propTypes,
-        style: View.propTypes.style,
-        defaultPage: React.PropTypes.number,
-        navFontSize: React.PropTypes.number,
-        navTextColor: React.PropTypes.string,
-        navTextColorSelected: React.PropTypes.string,
-        onItemSelected: React.PropTypes.func,
+        ... ViewPropTypes,
+        style:  ViewPropTypes.style,
+        defaultPage: PropTypes.number,
+        navFontSize: PropTypes.number,
+        navTextColor: PropTypes.string,
+        navTextColorSelected: PropTypes.string,
+        onItemSelected: PropTypes.func,
     };
 
     constructor(props) {
